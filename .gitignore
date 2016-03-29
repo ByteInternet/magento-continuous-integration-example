@@ -1,0 +1,12 @@
+# PhantomJS
+ghostdriver.log
+
+# vim
+*.swo
+*.swp
+
+# Vagrant checkout
+hypernode-vagrant
+
+# python bytecode
+*.pyc
