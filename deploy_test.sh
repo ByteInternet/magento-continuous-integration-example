@@ -23,6 +23,38 @@ git clone https://github.com/ByteInternet/hypernode-vagrant
 
 # move into the hypernode-vagrant repository directory
 cd hypernode-vagrant
+
+# write our local.yml to the hypernode-vagrant directory
+cat << EOF > local.yml
+---
+fs:
+  type: virtualbox
+  folders:
+    magento1:
+      host: data/web/public
+      guest: "/data/web/public"
+    nginx:
+      host: data/web/nginx/
+      guest: "/data/web/nginx/"
+  disabled_folders:
+    magento2:
+      host: data/web/magento2
+      guest: "/data/web/magento2"
+hostmanager:
+  extra-aliases:
+  - my-custom-store-url1.local
+  - my-custom-store-url2.local
+magento:
+  version: 1
+php:
+  version: 5.5
+varnish:
+  state: false
+vagrant:
+  box: hypernode_php5
+  box_url: http://vagrant.hypernode.com/customer/php5/catalog.json
+EOF
+
 # make sure we have the last hypernode revision
 vagrant box update || /bin/true  # don't fail if the box hasn't been added yet
 # boot new vagrant instance
