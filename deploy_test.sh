@@ -19,7 +19,7 @@ if test -d hypernode-vagrant; then
 fi
 
 # create a new checkout of the hypernode-vagrant repo
-git clone https://github.com/vdloo/hypernode-vagrant
+git clone https://github.com/ByteInternet/hypernode-vagrant
 
 # move into the hypernode-vagrant repository directory
 cd hypernode-vagrant
