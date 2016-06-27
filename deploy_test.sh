@@ -44,9 +44,6 @@ TEST_URL=$BOX_IP nosetests testcase.py
 # run the provisioning scripts again
 ansible-playbook provisioning/magento1.yml --extra-vars "@vars_test.yml" --user=app -i "$BOX_IP," # mind the trailing comma
 
-# test already provisioned node was successfully provisioned again
-TEST_URL=$BOX_IP nosetests testcase.py
-
 cd hypernode-vagrant
 # Destroy test instance
 vagrant destroy -f
