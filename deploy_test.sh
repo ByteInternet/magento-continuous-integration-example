@@ -60,8 +60,10 @@ vagrant box update || /bin/true  # don't fail if the box hasn't been added yet
 # boot new vagrant instance
 vagrant up
 # register unique hostname of booted instance
-BOX_IP=$(vagrant ssh -- ip route | awk 'END{print $NF}')
+BOX_IP=$(vagrant ssh-config | grep HostName | awk '{print$NF}')
 echo "Registered ip: $BOX_IP"
+echo "ansible_ssh_port: $(vagrant ssh-config | grep Port | awk '{print $NF}')" >> ../vars_test.yml
+
 cd ../
 
 # don't check ssh host key of vagrant box
