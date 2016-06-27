@@ -52,14 +52,5 @@
   - name: add Redis settings to Magento config xml
     copy: src=files/local.redis.xml dest='{{ magento_installation_path }}/app/etc/local.redis.xml' owner=app group=app
 
-  - name: copy custom Hypernode Magento theme
-    unarchive: src=files/hypernode-magento-theme.zip dest={{ magento_installation_path }} owner=app group=app
-
-  - name: configure Hypernode Magento theme
-    command:  /usr/local/bin/n98-magerun --root-dir=/data/web/public config:set "design/package/name" "hypernode"
-
-  - name: set Hypernode Magento theme to default
-    command:  /usr/local/bin/n98-magerun --root-dir=/data/web/public config:set "design/theme/default" "default"
-
   - name: flush Magento cache
     shell: /usr/local/bin/n98-magerun --root-dir=/data/web/public cache:flush
