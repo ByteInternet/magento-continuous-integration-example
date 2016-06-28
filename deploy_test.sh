@@ -28,7 +28,6 @@ cd hypernode-vagrant
 cat << EOF > local.yml
 ---
 fs:
-  type: virtualbox
   folders:
     magento1:
       host: data/web/public
@@ -36,6 +35,7 @@ fs:
     nginx:
       host: data/web/nginx/
       guest: "/data/web/nginx/"
+  type: virtualbox
   disabled_folders:
     magento2:
       host: data/web/magento2
@@ -50,6 +50,8 @@ php:
   version: 5.5
 varnish:
   state: false
+firewall:
+  state: true
 vagrant:
   box: hypernode_php5
   box_url: http://vagrant.hypernode.com/customer/php5/catalog.json
