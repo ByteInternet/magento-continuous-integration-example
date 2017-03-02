@@ -44,6 +44,7 @@ hostmanager:
   extra-aliases:
   - my-custom-store-url1.local
   - my-custom-store-url2.local
+  default_domain: hypernode.local
 magento:
   version: 1
 php:
