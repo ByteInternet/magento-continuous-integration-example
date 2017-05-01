@@ -44,6 +44,7 @@ hostmanager:
   extra-aliases:
   - my-custom-store-url1.local
   - my-custom-store-url2.local
+  default_domain: hypernode.local
 magento:
   version: 1
 php:
@@ -57,8 +58,9 @@ cgroup:
 xdebug:
   state: false
 vagrant:
-  box: hypernode_php5
-  box_url: http://vagrant.hypernode.com/customer/php5/catalog.json
+  box: hypernode_xenial
+  box_url: http://vagrant.hypernode.com/customer/xenial/catalog.json
+ubuntu_version: xenial
 EOF
 
 # make sure we have the last hypernode revision
