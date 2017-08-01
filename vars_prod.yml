@@ -1,6 +1,6 @@
 app_name: "example"
 magento_installation_path: "/data/web/public"
-magento_baseurl: "example.hypernode.io"
+magento_baseurl: "http://example.hypernode.io"
 admin: 
   first_name: "Voornaam"
   last_name: "Achternaam"

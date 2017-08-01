@@ -36,13 +36,13 @@ cd ../
 export ANSIBLE_HOST_KEY_CHECKING=False
 
 # apply deployment playbook
-ansible-playbook provisioning/magento1.yml --extra-vars "@vars_test.yml" --user=app -i "$BOX_IP," # mind the trailing comma
+ansible-playbook provisioning/magento1.yml --verbose --extra-vars "@vars_test.yml" --user=app -i "$BOX_IP," # mind the trailing comma
 
 # test if new node was successfully provisioned
 TEST_URL=$BOX_IP nosetests testcase.py
 
 # run the provisioning scripts again
-ansible-playbook provisioning/magento1.yml --extra-vars "@vars_test.yml" --user=app -i "$BOX_IP," # mind the trailing comma
+ansible-playbook provisioning/magento1.yml --verbose --extra-vars "@vars_test.yml" --user=app -i "$BOX_IP," # mind the trailing comma
 
 # test already provisioned node was successfully provisioned again
 TEST_URL=$BOX_IP nosetests testcase.py
